@@ -1,46 +1,15 @@
-<!DOCTYPE html>
-<html lang="de">
-    <head>
-        <meta charset="utf-8">
-        <title>Homepage in der Cloud</title> 
-        <link href="/img/favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon">
-        
-        <link href="/plugins/bootstrap/css/bootstrap.min.css" media="screen" rel="stylesheet" type="text/css">
-        <link href="/plugins/bootstrap/css/bootstrap-theme.min.css" media="screen" rel="stylesheet" type="text/css">
-        <link href="/css/main.css" media="screen" rel="stylesheet" type="text/css">
-        
-        <script type="text/javascript" src="/plugins/jquery/jquery-1.11.1.min.js"></script>
-        <script type="text/javascript" src="/plugins/bootstrap/js/bootstrap.min.js"></script>
-        <script type="text/javascript" src="/js/core.js"></script>
-    </head>
-    <body>
-        <h1>Homepage in der Cloud</h1>
-        
-        <blockquote>
-            <p>And it works!</p>
-        </blockquote>
-        
-        <table>
-            <tr>
-                <th>&nbsp;</th>
-                <th>Name</th>
-                <th>Alter</th>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td>Willy</td>
-                <td>23</td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>Achim</td>
-                <td>25</td>
-            </tr>
-            <tr>
-                <td>3</td>
-                <td>Sebastian</td>
-                <td>22</td>
-            </tr>
-        </table>
-    </body>
-</html>
+<?php
+    session_start();
+    header('content-type: text/html; charset=UTF-8');
+    
+    // define paths
+    define('ROUTE_PATH',        '../');
+    define('APPLICATION_PATH',  ROUTE_PATH . 'application/');
+    define('DATA_PATH',         ROUTE_PATH . 'data/');
+    
+    // include files
+    include_once (DATA_PATH . 'Kernel.php');             // Load Kernel
+    
+    $kernel = new Kernel();    
+    $kernel->run();
+    
