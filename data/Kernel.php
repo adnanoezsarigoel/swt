@@ -30,11 +30,11 @@
                 else throw new Exception('UNKNOWN ACTION');
                 
                 $this->includeContent = APPLICATION_PATH . $this->view;            
-                if (file_exists($this->includeContent)) throw new Exception('VIEW NOT FOUND');
+                if (!file_exists($this->includeContent)) throw new Exception('VIEW NOT FOUND');
                 include (APPLICATION_PATH . 'layout.phtml');
             }
-            catch(Exception $e)
-                var_dump($e->getMessage());
+            catch(Exception $e) {
+                echo $e->getMessage();
                 return FALSE;
             }            
             return TRUE;
